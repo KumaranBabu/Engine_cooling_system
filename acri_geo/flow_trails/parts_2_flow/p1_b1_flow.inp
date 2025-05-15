@@ -1,0 +1,39 @@
+/====   PROBLEM IDENTIFICATION             ====/
+TITLe p1_b1_flow
+USER user
+/====   GEOMETRY SPECIFICATIONS            ====/
+LOCAte ID=BEND1_ALL_SURFACE PAIR  'BEND1_ALL_SURFACE.loc' 824 items.
+LOCAte ID=BEND1_IN PAIR  'BEND1_IN.loc' 100 items.
+LOCAte ID=BEND1_IN_OUT PAIR  'BEND1_IN_OUT.loc' 424 items.
+LOCAte ID=BEND1_OUT PAIR  'BEND1_OUT.loc' 324 items.
+LOCAte ID=BEND1_SURFACE PAIR  'BEND1_SURFACE.loc' 400 items.
+LOCAte ID=PIPE1_ALL_SURFACE PAIR  'PIPE1_ALL_SURFACE.loc' 824 items.
+LOCAte ID=PIPE1_IN PAIR  'PIPE1_IN.loc' 324 items.
+LOCAte ID=PIPE1_IN_OUT PAIR  'PIPE1_IN_OUT.loc' 424 items.
+LOCAte ID=PIPE1_OUT PAIR  'PIPE1_OUT.loc' 100 items.
+LOCAte ID=PIPE1_SURFACE PAIR  'PIPE1_SURFACE.loc' 400 items.
+GRID NONE 'p1_b1_flow.1gl'  ! Nodes = 3000 Elements = 2000 Faces = 6724
+/====   INITIAL & BOUNDARY CONDITIONS      ====/
+INLEt  for SubRegion ID=BEND1_IN
+OUTLet  for SubRegion ID=PIPE1_OUT ;1.0
+WALL at everywhere unless otherwise specified
+SET W  ID=BEND1_IN 0.1
+/====   FLUID PROPERTIES & CONSTANTS       ====/
+DENSity of FIRSt phase =1.0 for entire domain
+VISCosity of fluid FIRST Phase  For Entire Domain Constant=1.53E-5
+/====   OUTPUT CONTROL                     ====/
+CONVergence MOMEntum REFErenced GLOBal 1.0E-5
+MATRIX ITERation P 32
+MATRIX P CONJ CHOL
+MATRIX U V BICG JACObi
+RELA 0.3
+/====   RUNTIME CONTROL                    ====/
+SOLVE Steady-State for 1000 steps max.
+FLUX P ID=BEND1_IN
+FLUX P ID=BEND1_OUT
+FLUX P ID=PIPE1_IN
+FLUX P ID=PIPE1_OUT
+END
+
+
+

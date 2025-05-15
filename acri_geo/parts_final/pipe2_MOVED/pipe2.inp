@@ -1,0 +1,15 @@
+/====   PROBLEM IDENTIFICATION             ====/
+TITLe pipe2
+USER user
+/====   GEOMETRY SPECIFICATIONS            ====/
+GRID  12 by 12 by 12
+COORdinates  X Y Z  BLOCk 1 'pipe2.grd'
+LOCAte ID=PIPE2_IN PAIR  'PIPE2_IN.loc' 100 items.
+LOCAte ID=PIPE2_OUT PAIR  'PIPE2_OUT.loc' 100 items.
+LOCAte ID=PIPE2_IN_OUT PAIR  'PIPE2_IN_OUT.loc' 200 items.
+LOCATE with COORDINATES ID=PIPE2_ALL_SURFACE (-1.0,-1.0,-1.0) to (1.0,1.0,1.0) only BOUNDary 
+LOCAte ID=PIPE2_SURFACE PAIR  'PIPE2_SURFACE.loc' 400 items.
+END
+
+
+
